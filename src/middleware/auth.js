@@ -1,3 +1,11 @@
+/**
+ * @ Author: zhenghui
+ * @ Create Time: 2021-06-24 15:16:55
+ * @ Modified by: zhenghui
+ * @ Modified time: 2021-11-16 14:59:19
+ * @ Description:
+ */
+
 export default ({ store, redirect, route }) => {
   // consts
   const blockRoute = /\/admin\/*/g;

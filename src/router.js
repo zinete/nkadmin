@@ -1,5 +1,6 @@
 import Vue from "vue";
 import Router from "vue-router";
+import Error from "./layouts/error.vue";
 import Index from "./pages/index";
 import Admin from "./pages/admin";
 import Dashboard from "./pages/admin/dashboard";

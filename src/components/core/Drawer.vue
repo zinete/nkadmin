@@ -24,33 +24,34 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-import variables from '@/assets/styles/variables.scss'
+import { mapGetters } from "vuex";
+import variables from "@/assets/styles/variables.scss";
 export default {
   computed: {
-    ...mapGetters(['sidebar']),
+    ...mapGetters(["sidebar"]),
     routes() {
-      return this.$router.options.routes
+      return this.$router.options.routes;
     },
     showLogo() {
-      return this.$store.state.settings.sidebarLogo
+      return this.$store.state.settings.sidebarLogo;
     },
     variables() {
-      return variables
+      return variables;
     },
     isCollapse() {
-      return !this.sidebar.opened
+      return !this.sidebar.opened;
     },
     activeRoute() {
-      const route = this.$route
-      const { meta, path } = route
+      const route = this.$route;
+      const { meta, path } = route;
       // if set path, the sidebar will highlight the path you set
+      console.log(meta, "meta.activeMenu");
       if (meta.activeMenu) {
-        return meta.activeMenu
+        return meta.activeMenu;
       }
-      return path
-    }
+      return path;
+    },
   },
-  methods: {}
-}
+  methods: {},
+};
 </script>

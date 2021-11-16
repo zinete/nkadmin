@@ -1,3 +1,4 @@
+const { resolve } = require("path");
 require("dotenv").config({ path: ".env" });
 module.exports = {
   telemetry: false,
@@ -29,6 +30,7 @@ module.exports = {
     {
       src: "@/plugins/element-ui.js",
     },
+    { src: "@/plugins/svgicon.js", ssr: false },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -67,8 +69,34 @@ module.exports = {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    transpile: [/^element-ui/],
     extractCSS: true,
-    extend(config, ctx) {},
+    vendor: ["element-ui"],
+    babel: {
+      plugins: [
+        [
+          "component",
+          {
+            libraryName: "element-ui",
+            styleLibraryName: "theme-chalk",
+          },
+        ],
+      ],
+    },
+    extend(config, { isClient, isDev }) {
+      if (isClient && !isDev) {
+        config.optimization.minimizer[0].options.terserOptions.compress.drop_console = true;
+      }
+      const svgRule = config.module.rules.find((rule) =>
+        rule.test.test(".svg")
+      );
+      svgRule.exclude = [resolve(__dirname, "src/assets/svg")];
+      config.module.rules.push({
+        test: /\.svg$/,
+        include: [resolve(__dirname, "src/assets/svg")],
+        use: [
+          { loader: "svg-sprite-loader", options: { symbolId: "icon-[name]" } },
+        ],
+      });
+    },
   },
 };
