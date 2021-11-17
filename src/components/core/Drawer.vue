@@ -1,9 +1,9 @@
 <template>
   <div :class="{ 'has-logo': showLogo }">
-    <coreLogo v-if="showLogo" :collapse="isCollapse" />
+    <logo v-if="showLogo" :collapse="isCollapse" />
     <el-scrollbar wrap-class="scrollbar-wrapper">
       <el-menu
-        :default-active="activeRoute"
+        :default-active="activeMenu"
         :collapse="isCollapse"
         :background-color="variables.menuBg"
         :text-color="variables.menuText"
@@ -11,12 +11,12 @@
         :active-text-color="variables.menuActiveText"
         :collapse-transition="false"
         mode="vertical"
-        router
       >
-        <coreSidebarItem
+        <sidebar-item
           v-for="route in routes"
-          :key="route.key"
+          :key="route.path"
           :item="route"
+          :base-path="route.path"
         />
       </el-menu>
     </el-scrollbar>
@@ -25,12 +25,25 @@
 
 <script>
 import { mapGetters } from "vuex";
+import Logo from "./Logo";
+import SidebarItem from "./SidebarItem";
 import variables from "@/assets/styles/variables.scss";
+
 export default {
+  components: { SidebarItem, Logo },
   computed: {
     ...mapGetters(["sidebar"]),
     routes() {
       return this.$router.options.routes;
+    },
+    activeMenu() {
+      const route = this.$route;
+      const { meta, path } = route;
+      // if set path, the sidebar will highlight the path you set
+      if (meta.activeMenu) {
+        return meta.activeMenu;
+      }
+      return path;
     },
     showLogo() {
       return this.$store.state.settings.sidebarLogo;
@@ -41,17 +54,6 @@ export default {
     isCollapse() {
       return !this.sidebar.opened;
     },
-    activeRoute() {
-      const route = this.$route;
-      const { meta, path } = route;
-      // if set path, the sidebar will highlight the path you set
-      console.log(meta, "meta.activeMenu");
-      if (meta.activeMenu) {
-        return meta.activeMenu;
-      }
-      return path;
-    },
   },
-  methods: {},
 };
 </script>

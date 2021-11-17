@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <h1>settings</h1>
-  </div>
+  <div>settings</div>
 </template>
 <script>
 export default {

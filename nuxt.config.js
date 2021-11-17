@@ -1,10 +1,11 @@
 const { resolve } = require("path");
 require("dotenv").config({ path: ".env" });
 module.exports = {
+  target: "server",
   telemetry: false,
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: "zinete-dlog-admintemplate",
+    title: "zinete-nkadmin",
     htmlAttrs: {
       lang: "en",
     },
@@ -15,6 +16,12 @@ module.exports = {
       { name: "format-detection", content: "telephone=no" },
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
+    script: [
+      {
+        src: "https://cdn.jsdelivr.net/npm/echarts@5.2.0/dist/echarts.min.js",
+        defer: true,
+      },
+    ],
   },
   /*
    ** Customize the progress-bar color

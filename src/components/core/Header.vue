@@ -44,6 +44,12 @@ export default {
     ...mapGetters(["sidebar", "avatar", "auth"]),
   },
   methods: {
+    themeChange(val) {
+      this.$store.dispatch("settings/changeSetting", {
+        key: "theme",
+        value: val,
+      });
+    },
     toggleSideBar() {
       this.$store.dispatch("app/toggleSideBar");
     },
