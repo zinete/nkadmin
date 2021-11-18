@@ -15,7 +15,7 @@ module.exports = {
       { hid: "description", name: "description", content: "" },
       { name: "format-detection", content: "telephone=no" },
     ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
+    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.svg" }],
     script: [
       {
         src: "https://cdn.jsdelivr.net/npm/echarts@5.2.0/dist/echarts.min.js",

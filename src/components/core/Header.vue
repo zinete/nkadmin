@@ -5,9 +5,7 @@
       @toggleClick="toggleSideBar"
       class="hamburger-container"
     />
-
     <coreBreadcrumb class="breadcrumb-container" />
-
     <div class="right-menu">
       <el-dropdown class="avatar-container" trigger="click">
         <div class="avatar-wrapper">
@@ -22,10 +20,7 @@
           <router-link to="/" divided>
             <el-dropdown-item> Home </el-dropdown-item>
           </router-link>
-          <a
-            target="_blank"
-            href="https://github.com/AhmdYehia/nuxt-admin-template"
-          >
+          <a target="_blank" href="https://github.com/zinete/zinete-nkadmin">
             <el-dropdown-item>Docs</el-dropdown-item>
           </a>
           <el-dropdown-item divided>
