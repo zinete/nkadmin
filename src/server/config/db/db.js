@@ -25,14 +25,6 @@ if (process.env.NODE_ENV === "development") {
   };
 } else {
   //正式服务器
-  // password = "Cxk3YPSxZcRZGAWj";
-  // user = "tianyu_db";
-  // host = "localhost";
-  // database = "tianyu_db";
-  // redisConfig = {
-  //   port: 6379,
-  //   host: "127.0.0.1",
-  // };
 }
 
 module.exports = {
