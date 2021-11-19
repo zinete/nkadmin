@@ -7,6 +7,7 @@
     "build": "nuxt build",
     "start": "cross-env NODE_ENV=production node src/server/index.js",
     "generate": "nuxt generate",
+    "init-db-dev": "cross-env NODE_ENV=development BASE=dev node src/server/config/db/init.js",
     "test": "jest"
   },
   "dependencies": {
@@ -27,9 +28,11 @@
     "koa-router": "^9.4.0",
     "koa-static": "^5.0.0",
     "koa2-cors": "^2.0.6",
+    "mysql2": "^2.3.3",
     "normalize.css": "^8.0.1",
     "nuxt": "^2.15.7",
-    "path-to-regexp": "^6.2.0"
+    "path-to-regexp": "^6.2.0",
+    "sequelize": "^6.11.0"
   },
   "devDependencies": {
     "@nuxt/types": "^2.15.7",
