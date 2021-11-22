@@ -2,12 +2,12 @@
  * @ Author: ZhengHui
  * @ Create Time: 2020-09-15 23:20:02
  * @ Modified by: zhenghui
- * @ Modified time: 2021-11-19 17:13:45
+ * @ Modified time: 2021-11-22 16:53:36
  * @ Description: 创建 user model
  */
 
-const seq = require("../../config/db/seq");
-const Sequelize = require("sequelize");
+import seq from "../../config/db/seq";
+import Sequelize from "sequelize";
 
 // 表名 users
 const User = seq.define("user", {
@@ -30,6 +30,7 @@ const User = seq.define("user", {
   gender: {
     type: Sequelize.DECIMAL,
     comment: "性别（1男，2女，3保密）",
+    default: 3,
   },
   picture: {
     type: Sequelize.STRING,
@@ -41,6 +42,4 @@ const User = seq.define("user", {
   },
 });
 
-module.exports = {
-  User,
-};
+export { User };

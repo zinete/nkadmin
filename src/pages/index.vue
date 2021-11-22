@@ -17,13 +17,13 @@
             <h3 class="title">Admin Login</h3>
           </div>
 
-          <el-form-item prop="email">
+          <el-form-item prop="userName">
             <i class="icon el-icon-user"></i>
             <el-input
-              ref="email"
-              v-model="loginForm.email"
+              ref="userName"
+              v-model="loginForm.userName"
               placeholder="UserName"
-              name="email"
+              name="userName"
               tabindex="1"
               auto-complete="on"
             />
@@ -34,18 +34,18 @@
             <el-input
               ref="password"
               :key="passwordType"
-              v-model="loginForm.password"
+              v-model="loginForm.passWord"
               :type="passwordType"
               @keyup.enter.native="handleLogin"
               placeholder="Password"
-              name="password"
+              name="passWord"
               tabindex="2"
               auto-complete="on"
             />
             <span @click="showPwd" class="show-pwd">
               <i
                 :class="
-                  passwordType === 'password'
+                  passwordType === 'passWord'
                     ? 'el-icon-turn-off'
                     : 'el-icon-open'
                 "
@@ -79,31 +79,30 @@ export default {
   data() {
     return {
       loginForm: {
-        email: "admin@zinete.com",
-        password: "11111111",
+        userName: "",
+        passWord: "",
       },
       hasErr: false,
       errMsg: "",
       loginRules: {
-        email: [
+        userName: [
           {
-            type: "email",
             min: 6,
             trigger: ["blur", "change"],
           },
         ],
-        password: [{ required: true, min: 8, trigger: "blur" }],
+        passWord: [{ required: true, min: 8, trigger: "blur" }],
       },
       loading: false,
-      passwordType: "password",
+      passwordType: "passWord",
     };
   },
   methods: {
     showPwd() {
-      if (this.passwordType === "password") {
+      if (this.passwordType === "passWord") {
         this.passwordType = "";
       } else {
-        this.passwordType = "password";
+        this.passwordType = "passWord";
       }
       this.$nextTick(() => {
         this.$refs.password.focus();

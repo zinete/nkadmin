@@ -2,21 +2,13 @@
  * @ Author: zhenghui
  * @ Create Time: 2021-11-19 17:01:34
  * @ Modified by: zhenghui
- * @ Modified time: 2021-11-19 17:06:13
- * @ Description:
- */
-
-/**
- * @ Author: zhenghui
- * @ Create Time: 2021-06-24 17:15:54
- * @ Modified by: zhenghui
- * @ Modified time: 2021-07-05 11:11:25
+ * @ Modified time: 2021-11-22 16:29:32
  * @ Description: 执行数据库同步
  */
 
-const seq = require("./seq");
+import seq from "./seq";
 
-require("../../routers/model.index");
+import("../../routers/model.index");
 // 测试连接
 seq
   .authenticate()

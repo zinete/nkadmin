@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "cross-env NODE_ENV=development nodemon src/server/index.js --watch server --inspect=9229",
+    "dev": "cross-env NODE_ENV=development nodemon src/server/index.js --watch server --exec babel-node",
     "build": "nuxt build",
-    "start": "cross-env NODE_ENV=production node src/server/index.js",
+    "start": "cross-env NODE_ENV=production node src/server/index.js --exec babel-node",
     "generate": "nuxt generate",
-    "init-db-dev": "cross-env NODE_ENV=development BASE=dev node src/server/config/db/init.js",
+    "init-db-dev": "cross-env NODE_ENV=development BASE=dev npx babel-node src/server/config/db/init.js --exec babel-node",
     "test": "jest"
   },
   "dependencies": {
@@ -16,9 +16,12 @@
     "cookieparser": "^0.1.0",
     "core-js": "^3.15.1",
     "cross-env": "^5.2.0",
+    "date-fns": "^2.26.0",
     "dotenv": "^10.0.0",
     "element-ui": "^2.15.2",
+    "fs-extra": "^10.0.0",
     "js-cookie": "^2.2.1",
+    "jsonwebtoken": "^8.5.1",
     "jwt-decode": "^2.2.0",
     "koa": "^2.5.2",
     "koa-body": "^4.2.0",
@@ -35,6 +38,11 @@
     "sequelize": "^6.11.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.16.0",
+    "@babel/core": "^7.16.0",
+    "@babel/node": "^7.16.0",
+    "@babel/plugin-transform-runtime": "^7.16.4",
+    "@babel/preset-env": "^7.16.4",
     "@nuxt/types": "^2.15.7",
     "@nuxt/typescript-build": "^2.1.0",
     "@nuxtjs/router": "^1.5.0",
@@ -44,11 +52,13 @@
     "babel-plugin-component": "^1.1.1",
     "fibers": "^5.0.0",
     "jest": "^27.0.5",
+    "koa2-swagger-ui": "^5.3.0",
     "lodash": "^4.17.15",
     "nodemon": "^2.0.15",
     "sass": "^1.43.4",
     "sass-loader": "10",
     "svg-sprite-loader": "^6.0.9",
+    "swagger-jsdoc": "^6.1.0",
     "ts-jest": "^27.0.3",
     "vue-jest": "^3.0.4"
   }

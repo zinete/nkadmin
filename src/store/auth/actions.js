@@ -5,10 +5,9 @@ export default {
     try {
       // 开始登录
       const { data, code, msg } = await Axios.post("/api/v1/user/login", {
-        userName: res.username,
-        passWord: res.password,
+        userName: res.userName,
+        passWord: res.passWord,
       });
-
       if (data) {
         // 获取token
         const token = data.token;

@@ -2,11 +2,11 @@
  * @ Author: ZhengHui
  * @ Create Time: 2020-09-15 23:09:26
  * @ Modified by: zhenghui
- * @ Modified time: 2021-11-19 17:05:08
+ * @ Modified time: 2021-11-22 16:29:19
  * @ Description: 连接 mysql
  */
-const sequelize = require("sequelize");
-const db = require("./db");
+import sequelize from "sequelize";
+import db from "./db";
 
 const seq = new sequelize(db.database, db.user, db.password, {
   host: db.host,
@@ -14,4 +14,4 @@ const seq = new sequelize(db.database, db.user, db.password, {
   timezone: "+08:00",
 });
 
-module.exports = seq;
+export default seq;
