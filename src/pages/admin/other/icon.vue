@@ -302,28 +302,32 @@ export default {
 
 <style lang="scss" scoped>
 .icon_box {
-  display: flex;
-  margin: 20px;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  display: grid;
+  /* grid-template-columns: repeat(auto-fill, 200px); */
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+  margin: 12px;
 }
 
 .icon_box_icon {
-  width: 200px;
-  height: 120px;
-  background-color: #130e051f;
-  margin-bottom: 20px;
+  background-color: #fff;
+  padding: 20px 0px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   justify-content: center;
-  transition: all 0.25ms linear;
+  transition: all 0.1s linear;
+  font-size: 14px;
+  font-weight: 400;
+  color: #0976cf;
 }
 .icon_box_icon:hover {
-  background-color: #0564bd5e;
+  background-color: #0564bd;
   cursor: pointer;
+  transition: all 0.1s linear;
+  color: #fff;
 }
 .icon {
   font-size: 32px;

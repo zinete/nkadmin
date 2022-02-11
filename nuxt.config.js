@@ -18,9 +18,9 @@ module.exports = {
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.svg" }],
     script: [
       {
-        src: "https://cdn.jsdelivr.net/npm/echarts@5.2.0/dist/echarts.min.js",
+        src: "https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/echarts/5.0.2/echarts.min.js",
         defer: true,
-      },
+      }
     ],
   },
   /*
@@ -38,6 +38,7 @@ module.exports = {
       src: "@/plugins/element-ui.js",
     },
     { src: "@/plugins/svgicon.js", ssr: false },
+    { src: '~plugins/video.js', ssr: false }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

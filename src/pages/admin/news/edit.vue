@@ -1,9 +1,32 @@
 <template>
-  <div>创建文章</div>
+  <div>
+    <div>
+      <button class="btn btn-primary" @click="reload">reload</button>
+    </div>
+    <br />
+
+    <div class="video_player">
+      <Video />
+    </div>
+  </div>
 </template>
 
 <script>
-export default {};
+import { defineComponent } from "@vue/composition-api";
+
+export default defineComponent({
+  name: "index",
+  methods: {
+    reload: function () {
+      location.reload();
+    },
+  },
+});
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped>
+.video_player {
+  width: 100%;
+  height: 400px;
+}
+</style>

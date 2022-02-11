@@ -13,13 +13,16 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/dotenv": "^1.4.1",
+    "@vue/composition-api": "^1.4.3",
     "cookieparser": "^0.1.0",
     "core-js": "^3.15.1",
     "cross-env": "^5.2.0",
     "date-fns": "^2.26.0",
     "dotenv": "^10.0.0",
+    "dplayer": "^1.26.0",
     "element-ui": "^2.15.2",
     "fs-extra": "^10.0.0",
+    "hls.js": "^1.1.2",
     "js-cookie": "^2.2.1",
     "jsonwebtoken": "^8.5.1",
     "jwt-decode": "^2.2.0",
@@ -35,7 +38,8 @@
     "normalize.css": "^8.0.1",
     "nuxt": "^2.15.7",
     "path-to-regexp": "^6.2.0",
-    "sequelize": "^6.11.0"
+    "sequelize": "^6.11.0",
+    "vue-videojs7": "^1.0.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.16.0",
